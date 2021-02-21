@@ -82,6 +82,10 @@ namespace Lab_2
             this.датеОбслуживанияToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripDropDownButton4 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -365,21 +369,21 @@ namespace Lab_2
             // поТипуToolStripMenuItem
             // 
             this.поТипуToolStripMenuItem.Name = "поТипуToolStripMenuItem";
-            this.поТипуToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.поТипуToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.поТипуToolStripMenuItem.Text = "По типу";
             this.поТипуToolStripMenuItem.Click += new System.EventHandler(this.поТипуToolStripMenuItem_Click);
             // 
             // поАвиакомпанииToolStripMenuItem
             // 
             this.поАвиакомпанииToolStripMenuItem.Name = "поАвиакомпанииToolStripMenuItem";
-            this.поАвиакомпанииToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.поАвиакомпанииToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.поАвиакомпанииToolStripMenuItem.Text = "По модели";
             this.поАвиакомпанииToolStripMenuItem.Click += new System.EventHandler(this.поАвиакомпанииToolStripMenuItem_Click);
             // 
             // поКолвуМестToolStripMenuItem
             // 
             this.поКолвуМестToolStripMenuItem.Name = "поКолвуМестToolStripMenuItem";
-            this.поКолвуМестToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.поКолвуМестToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.поКолвуМестToolStripMenuItem.Text = "По кол-ву мест";
             this.поКолвуМестToolStripMenuItem.Click += new System.EventHandler(this.поКолвуМестToolStripMenuItem_Click);
             // 
@@ -471,7 +475,9 @@ namespace Lab_2
             this.toolStripDropDownButton1,
             this.toolStripDropDownButton2,
             this.toolStripDropDownButton3,
-            this.toolStripDropDownButton4});
+            this.toolStripDropDownButton4,
+            this.toolStripButton1,
+            this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(802, 27);
@@ -494,21 +500,21 @@ namespace Lab_2
             // поТипуToolStripMenuItem1
             // 
             this.поТипуToolStripMenuItem1.Name = "поТипуToolStripMenuItem1";
-            this.поТипуToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.поТипуToolStripMenuItem1.Size = new System.Drawing.Size(197, 26);
             this.поТипуToolStripMenuItem1.Text = "По типу";
             this.поТипуToolStripMenuItem1.Click += new System.EventHandler(this.поТипуToolStripMenuItem_Click);
             // 
             // поМоделиToolStripMenuItem
             // 
             this.поМоделиToolStripMenuItem.Name = "поМоделиToolStripMenuItem";
-            this.поМоделиToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.поМоделиToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.поМоделиToolStripMenuItem.Text = "По модели";
             this.поМоделиToolStripMenuItem.Click += new System.EventHandler(this.поАвиакомпанииToolStripMenuItem_Click);
             // 
             // колвуМестToolStripMenuItem
             // 
             this.колвуМестToolStripMenuItem.Name = "колвуМестToolStripMenuItem";
-            this.колвуМестToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.колвуМестToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.колвуМестToolStripMenuItem.Text = "По кол-ву мест";
             this.колвуМестToolStripMenuItem.Click += new System.EventHandler(this.поКолвуМестToolStripMenuItem_Click);
             // 
@@ -558,11 +564,53 @@ namespace Lab_2
             this.toolStripDropDownButton4.Text = "О программе";
             this.toolStripDropDownButton4.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(55, 24);
+            this.toolStripButton1.Text = "Назад";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(64, 24);
+            this.toolStripButton2.Text = "Вперед";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(407, 234);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 34;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(407, 272);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(92, 23);
+            this.button6.TabIndex = 35;
+            this.button6.Text = "Настройки";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(802, 548);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.button4);
@@ -665,6 +713,10 @@ namespace Lab_2
         private System.Windows.Forms.ToolStripMenuItem датеОбслуживанияToolStripMenuItem1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton3;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton4;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }
 

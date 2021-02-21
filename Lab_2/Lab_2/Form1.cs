@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Lab_2.AbstractFactory;
+using Lab_2.Builder;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -19,6 +21,8 @@ namespace Lab_2
         public static string lastMove;
         public Crew crew;
         public Crews crews = new Crews();
+        public Crew crewsBackup = new Crew();
+        public Crew buf = new Crew();
         public Form1()
         {
             InitializeComponent();
@@ -61,34 +65,36 @@ namespace Lab_2
         public int count = 0;
         private void button2_Click(object sender, EventArgs e)
         {
+            WorkerCreator creator = new WorkerCreator();
+            BuilderW builder = new BuilderW();
+            Worker test = creator.Create(builder, "Игорь А А", 32, 3);
+
             try
             {
+                Crew crew;
                 count = 0;
-                Crew crew = new Crew();
-                Plane plane = new Plane();
-                plane.id = textBox5.Text;
-                plane.model = comboBox2.Text;
                 if (checkBox1.Checked)
                 {
-                    plane.type = checkBox1.Text;
+                    crew = new Crew(new MilitaryFactory());
                     count++;
                 }
                 else if (checkBox2.Checked)
                 {
-                    plane.type = checkBox2.Text;
+                    crew = new Crew(new CivilFactory());
                     count++;
                 }
-                else if (checkBox3.Checked)
+                else
                 {
-                    plane.type = checkBox3.Text;
+                    crew = new Crew(new CargoFactory());
                     count++;
                 }
                 if (count > 1)
                     throw new Exception("Должен быть выбран 1 тип самолета");
-                plane.dateProd = dateTimePicker1.Value;
-                plane.seats = Convert.ToInt32(textBox2.Text);
-                Validate(plane);
-                crew.plane = plane;
+                crew.plane.id = textBox5.Text;
+                crew.plane.model = comboBox2.Text;
+                crew.plane.dateProd = dateTimePicker1.Value;
+                crew.plane.seats = Convert.ToInt32(textBox2.Text);
+                Validate(crew.plane);
                 crew.workers = wrkers;
                 count = 0;
                 XmlSerializer serializer = new XmlSerializer(typeof(Crew));
@@ -96,6 +102,7 @@ namespace Lab_2
                 {
                     serializer.Serialize(stream, crew);
                 }
+                crewsBackup = crew;
                 crews.crews.Add(crew);
                 wrkers.Clear();
                 MessageBox.Show("Данные были сохранены в файл");
@@ -256,6 +263,52 @@ namespace Lab_2
         {
             MessageBox.Show("Version: 1.0 \n Shust Yuri");
             lastMove = "О программе";
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!(crews.crews.Contains(crewsBackup)))
+                    throw new Exception("Действие невозможно");
+                buf = crewsBackup;
+                crews.crews.Remove(crewsBackup);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            StringBuilder str = new StringBuilder();
+            foreach (Crew i in crews.crews)
+            {
+                str.Append(i.plane.id + " " + i.plane.model + " " + i.plane.type + " " + i.plane.seats + "\r\n");
+            }
+            MessageBox.Show(str.ToString());
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (crews.crews.Contains(buf))
+                    throw new Exception("Действие невозможно");
+                crews.crews.Add(buf);
+                crewsBackup = buf;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public AppSettings Config { get; set; }
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Config = AppSettings.GetInstance(this.Size.ToString());
+            MessageBox.Show(Config.settings);
         }
     }
 }

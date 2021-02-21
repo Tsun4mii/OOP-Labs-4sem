@@ -19,6 +19,7 @@ namespace Lab_2
 
         private void button1_Click(object sender, EventArgs e)
         {
+            textBox1.Clear();
             Crews result = new Crews();
             Form1 f1 = this.Owner as Form1; 
             if(radioButton1.Checked)
