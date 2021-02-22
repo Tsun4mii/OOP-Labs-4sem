@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractFactory\AbstractFactory.cs" />
+    <Compile Include="Adapter\Adapter.cs" />
     <Compile Include="Builder\Builder.cs" />
     <Compile Include="Crew.cs" />
     <Compile Include="Crews.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="ModelSearchForm.Designer.cs">
       <DependentUpon>ModelSearchForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Momento\MomentoCrew.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

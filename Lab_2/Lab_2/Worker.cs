@@ -14,6 +14,10 @@ namespace Lab_2
         public int age;
         public int workExpirience;
         public string post;
+        public string Work()
+        {
+            return "I`am working";
+        }
         //public Worker(string fio, int age, int exp, string post)
         //{
         //    FIO = fio;

@@ -1,5 +1,7 @@
 ﻿using Lab_2.AbstractFactory;
+using Lab_2.Adapter;
 using Lab_2.Builder;
+using Lab_2.Momento;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,6 +33,8 @@ namespace Lab_2
         public Crews typeSearchResult = new Crews();
         public Crews seatsSearchResult = new Crews();
         public Crews modelSearchResults = new Crews();
+        public static CaretakerCrews caretaker = new CaretakerCrews();
+
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -65,10 +69,7 @@ namespace Lab_2
         public int count = 0;
         private void button2_Click(object sender, EventArgs e)
         {
-            WorkerCreator creator = new WorkerCreator();
-            BuilderW builder = new BuilderW();
-            Worker test = creator.Create(builder, "Игорь А А", 32, 3);
-
+            caretaker.History.Push(crews.SaveState());
             try
             {
                 Crew crew;
@@ -267,17 +268,18 @@ namespace Lab_2
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (!(crews.crews.Contains(crewsBackup)))
-                    throw new Exception("Действие невозможно");
-                buf = crewsBackup;
-                crews.crews.Remove(crewsBackup);
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //try
+            //{
+            //    if (!(crews.crews.Contains(crewsBackup)))
+            //        throw new Exception("Действие невозможно");
+            //    buf = crewsBackup;
+            //    crews.crews.Remove(crewsBackup);
+            //}
+            //catch(Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+            crews.RestoreState(caretaker.History.Pop());
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -309,6 +311,15 @@ namespace Lab_2
         {
             Config = AppSettings.GetInstance(this.Size.ToString());
             MessageBox.Show(Config.settings);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            WorkerCreator creator = new WorkerCreator();
+            BuilderW builder = new BuilderW();
+            Worker test = creator.Create(builder, "Игорь А А", 32, 3);
+            ITarget target = new Adapterr(test);
+            MessageBox.Show(target.StartWork());
         }
     }
 }
