@@ -1,0 +1,58 @@
+﻿<Window x:Class="Lab_6_7.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab_6_7"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        Cursor="Cursor/1.cur"
+        Icon="Cursor/Rainmeter.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="383*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="190*"/>
+            <ColumnDefinition Width="693*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Grid.Row="0" Style="{DynamicResource GridTopBar}">
+            
+        </Grid>
+        <Grid Grid.RowSpan="2" Style="{DynamicResource GridLeftBar}">
+            <ListView x:Name="ListViewMenu" Margin="0 50" Foreground="White" MinHeight="240" VerticalContentAlignment="Top" 
+                              SelectionChanged="ListViewMenu_SelectionChanged" Background="{x:Null}" BorderBrush="{x:Null}" 
+                              IsSynchronizedWithCurrentItem="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListViewItem Height="60" >
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Home" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <TextBlock VerticalAlignment="Center" Text="{DynamicResource m_Home}" FontSize="20" FontFamily="Global Sans Serif" Margin="15,0,0,0" TextWrapping="Wrap" />
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="60" >
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Basket" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <TextBlock Text="{DynamicResource m_Cart}" TextWrapping="Wrap" FontSize="20" FontFamily="Global Sans Serif" Margin="15,0,0,0" VerticalAlignment="Center" />
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="60" Background="{x:Null}" >
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="TextSearch" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <TextBlock VerticalAlignment="Center" Text="{DynamicResource m_Search}" FontSize="20" FontFamily="Global Sans Serif" Margin="15,0,0,0" TextWrapping="Wrap" />
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="60" Background="{x:Null}" >
+                    <StackPanel Orientation="Horizontal" >
+                        <materialDesign:PackIcon Kind="Abacus" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <TextBlock VerticalAlignment="Center" Text="{DynamicResource m_Options}" FontSize="20" FontFamily="Global Sans Serif" Margin="15,0,0,0" TextWrapping="Wrap" />
+                    </StackPanel>
+                </ListViewItem>
+            </ListView>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1" Style="{DynamicResource GridPrincipalTheme}" x:Name="GridPrincipal">
+            
+        </Grid>
+    </Grid>
+</Window>
