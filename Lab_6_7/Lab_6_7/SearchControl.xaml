@@ -47,6 +47,7 @@
                 <Button  Command="{Binding RedoCommand, ElementName=userControl}" Content="{DynamicResource m_SearchRedo}"  >
                    
                 </Button>
+                <Button Content="Lab8" Click="Button_Click"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">

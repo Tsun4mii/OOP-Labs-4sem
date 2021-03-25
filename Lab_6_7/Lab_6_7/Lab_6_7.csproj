@@ -83,6 +83,9 @@
     </Compile>
     <Compile Include="Commands\IUndo.cs" />
     <Compile Include="Commands\UndoManager.cs" />
+    <Compile Include="Lab_8.xaml.cs">
+      <DependentUpon>Lab_8.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SearchControl.xaml.cs">
       <DependentUpon>SearchControl.xaml</DependentUpon>
     </Compile>
@@ -95,6 +98,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CartContril.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lab_8.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

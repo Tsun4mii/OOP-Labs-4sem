@@ -197,5 +197,11 @@ namespace Lab_6_7
                   }));
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Lab_8 lab = new Lab_8();
+            lab.ShowDialog();
+        }
     }
 }
