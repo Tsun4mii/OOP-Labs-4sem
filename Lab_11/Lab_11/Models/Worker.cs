@@ -18,7 +18,7 @@ namespace Lab_11.Models
 
         public static async Task addWorker(Worker w)
         {
-            WorkerContext wc = new WorkerContext();
+            MyDb wc = new MyDb();
             try
             {
                 wc.Worker.Add(w);
@@ -32,7 +32,7 @@ namespace Lab_11.Models
 
         public static void GetNameById(int id)
         {
-            WorkerContext wc = new WorkerContext();
+            MyDb wc = new MyDb();
             var result = wc.Worker.Where(p => p.id == id);
             StringBuilder str = new StringBuilder();
             foreach( Worker i in result)

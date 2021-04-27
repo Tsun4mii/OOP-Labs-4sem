@@ -80,16 +80,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Context\PlaneContext.cs" />
-    <Compile Include="Context\WorkerContext.cs" />
+    <Compile Include="Context\MyDb.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\IRepository.cs" />
     <Compile Include="Models\Plane.cs" />
+    <Compile Include="Models\PlaneRepository.cs" />
+    <Compile Include="Models\UnitOfWork.cs" />
     <Compile Include="Models\Worker.cs" />
+    <Compile Include="Models\WorkersRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

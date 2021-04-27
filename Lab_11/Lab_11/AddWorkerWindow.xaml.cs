@@ -27,12 +27,15 @@ namespace Lab_11
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            UnitOfWork unit = new UnitOfWork();
+
             Worker w = new Worker();
             w.id = 0;
             w.name = TextBox_name.Text;
             w.planeId = Convert.ToInt32(TextBox_planeId.Text);
 
-            Worker.addWorker(w).Wait(2);
+            unit.Workers.Create(w);
+            unit.Save();
             this.Close();
         }
     }

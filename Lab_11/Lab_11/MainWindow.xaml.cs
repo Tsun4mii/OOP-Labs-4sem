@@ -23,18 +23,18 @@ namespace Lab_11
     /// </summary>
     public partial class MainWindow : Window
     {
-        WorkerContext wc;
-        PlaneContext pc;
+        MyDb mdb;
         public MainWindow()
         {
             InitializeComponent();
 
-            pc = new PlaneContext();
-            wc = new WorkerContext();
-            pc.Plane.Load();
-            wc.Worker.Load();
+            mdb = new MyDb();
 
-            //Plane a = new Plane { id = 1, model = "Airbus" };
+
+
+            Plane a = new Plane { id = 1, model = "Airbus" };
+            mdb.Plane.Add(a);
+            mdb.SaveChanges();
             //Worker worker = new Worker { id = 1, name = "Tom", planeId = 1 };
 
             //a.Workers.Add(worker);
@@ -44,22 +44,20 @@ namespace Lab_11
             //pc.SaveChanges();
             //wc.SaveChanges();
 
-            workerGrid.ItemsSource = wc.Worker.Local.ToBindingList();
+            workerGrid.ItemsSource = mdb.Worker.Local.ToBindingList();
 
             this.Closing += MainWindow_Closing;
         }
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            pc.Dispose();
-            wc.Dispose();
+            mdb.Dispose();
         }
 
         private void updateButton_Click(object sender, RoutedEventArgs e)
         {
-            pc.SaveChanges();
-            wc.SaveChanges();
-            wc.Worker.Load();
-            workerGrid.ItemsSource = wc.Worker.Local.ToBindingList();
+            mdb.SaveChanges();
+            mdb.Worker.Load();
+            workerGrid.ItemsSource = mdb.Worker.Local.ToBindingList();
         }
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
@@ -71,11 +69,11 @@ namespace Lab_11
                     Worker worker = workerGrid.SelectedItems[i] as Worker;
                     if (worker != null)
                     {
-                        wc.Worker.Remove(worker);
+                        mdb.Worker.Remove(worker);
                     }
                 }
             }
-            wc.SaveChanges();
+            mdb.SaveChanges();
         }
 
         private void addButton_Click(object sender, RoutedEventArgs e)
@@ -94,12 +92,12 @@ namespace Lab_11
             if(workerGrid.SelectedItems.Count > 0)
             {
                 var worker = workerGrid.SelectedItem as Worker;
-                var change = wc.Worker.Where(c => c.name == worker.name).FirstOrDefault();
+                var change = mdb.Worker.Where(c => c.name == worker.name).FirstOrDefault();
                 change.name = TextBox_Name.Text;
-                wc.SaveChanges();
+                mdb.SaveChanges();
             }
-            wc.Worker.Load();
-            workerGrid.ItemsSource = wc.Worker.ToList();
+            mdb.Worker.Load();
+            workerGrid.ItemsSource = mdb.Worker.ToList();
         }
     }
 }
